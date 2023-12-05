@@ -5,24 +5,26 @@ include __DIR__ ."/Product.php";
 
 class Movie extends Product 
 {
-    private int $id;
-    private string $title;
     private string $overview;
     private float $vote_average;
-    private string $poster_path;
     private string $original_language;
 
+    private float $price;
+    private int $availability;
+
     public array $genres;
-    function __construct($id, $title, $overview, $vote, $image, $language, $genres, $quantity, $price)
+    function __construct($id, $title, $image, $overview, $vote, $language, $genres, $price, $availability)
     {
-        parent::__construct($price, $quantity);
+        parent::__construct($id, $title, $image);
         $this->id = $id;
         $this->title = $title;
+        $this->poster_path = $image;
         $this->overview = $overview;
         $this->vote_average = $vote;
-        $this->poster_path = $image;
         $this->original_language = $language;
-        $this->genres = $genres;  
+        $this->genres = $genres;
+        $this->price = $price;
+        $this->availability = $availability;  
     }
 
     private function getVote(){
@@ -47,9 +49,9 @@ class Movie extends Product
     }
     public function printCard()
     {
-        // $sconto = $this->setDiscount($this->title);
-        $image = $this->poster_path;
+        //$sconto = $this->setDiscount($this->title);
         $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
+        $image = $this->poster_path;
         $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $genre = $this->formatGenres();
@@ -76,9 +78,9 @@ class Movie extends Product
                 $rand_genre = $genres[$index];
                 $moviegenres[] = $rand_genre;
             }
-            $quantity = rand(0, 100);
+            $availability = rand(0, 100);
             $price = rand(5, 200);
-            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $moviegenres, $quantity, $price); 
+            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $moviegenres, $price, $availability); 
         }
         return $movies;  
     }

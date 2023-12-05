@@ -19,7 +19,7 @@ $movies = Movie::fetchAll();
     </div>
 </section>
 <section class="container">
-    <h2>Games</h2>
+    <h2>PC Games</h2>
     <div class="row gy-4">
         
     </div>

@@ -1,14 +1,17 @@
 <?php
+
+//properties all three have in common
 class Product
 {
-    protected float $price;
-    private int $sconto = 0;
-    protected int $availability;
+    protected int $id;
+    private string $title;
+    protected string $image;
 
-    public function __construct($price, $availability)
+    public function __construct($id, $title, $image)
     {
-        $this->price = $price;
-        $this->availability = $availability;
+        $this->id = $id;
+        $this->title = $title;
+        $this->image = $image;
     }
 
 }
