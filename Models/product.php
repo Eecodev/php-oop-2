@@ -4,7 +4,7 @@
 class Product
 {
     protected int $id;
-    private string $title;
+    protected string $title;
     protected string $image;
 
     public function __construct($id, $title, $image)

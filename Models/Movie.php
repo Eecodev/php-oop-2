@@ -1,14 +1,13 @@
 <?php
 
 include __DIR__ ."/Genre.php";
-include __DIR__ ."/Product.php";
+include __DIR__ ."/product.php";
 
 class Movie extends Product 
 {
     private string $overview;
     private float $vote_average;
     private string $original_language;
-
     private float $price;
     private int $availability;
 
@@ -16,11 +15,8 @@ class Movie extends Product
     function __construct($id, $title, $image, $overview, $vote, $language, $genres, $price, $availability)
     {
         parent::__construct($id, $title, $image);
-        $this->id = $id;
-        $this->title = $title;
-        $this->poster_path = $image;
         $this->overview = $overview;
-        $this->vote_average = $vote;
+        $this->vote_average = floatval($vote);
         $this->original_language = $language;
         $this->genres = $genres;
         $this->price = $price;
@@ -48,10 +44,9 @@ class Movie extends Product
         return $template;
     }
     public function printCard()
-    {
-        //$sconto = $this->setDiscount($this->title);
+    {   
         $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
-        $image = $this->poster_path;
+        $image = $this->image;
         $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $genre = $this->formatGenres();
