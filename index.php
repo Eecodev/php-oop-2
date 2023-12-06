@@ -13,6 +13,17 @@ $movies = Movie::fetchAll();
     </div>
 </section>
 
+<!-- <section class="container">
+    <h2>Books</h2>
+    <div class="row gy-4">
+        <?php /*foreach ($books as $book){
+                $book->printCard();
+            }
+            */
+        ?>
+    </div>
+</section> -->
+
 <section class="container">
     <h2>PC Games</h2>
     <div class="row gy-4">
