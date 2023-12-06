@@ -12,12 +12,7 @@ $movies = Movie::fetchAll();
         ?>
     </div>
 </section>
-<section class="container">
-    <h2>Books</h2>
-    <div class="row gy-4">
-        
-    </div>
-</section>
+
 <section class="container">
     <h2>PC Games</h2>
     <div class="row gy-4">
