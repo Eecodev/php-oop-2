@@ -18,7 +18,7 @@
             
             <ul class="menu d-flex">
                 <li class="p-2 menu-item"><a href="index.php">MOVIES</a></li>
-                <li class="p-2 menu-item"><a href="Readings.php">BOOKS</a></li>
+                <li class="p-2 menu-item"><a href="books.php">BOOKS</a></li>
                 <li class="p-2 menu-item"><a href="PcGames.php">PC GAMES</a></li>
             </ul>
         </div>
