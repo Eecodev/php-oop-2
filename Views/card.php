@@ -16,8 +16,8 @@
             </div>
             <div>
                 available
-                <?= $availability ?> 
-                <?= $price ?>
+                <?= $price ?> 
+                <?= $availability ?>
             </div>
 
         </div>

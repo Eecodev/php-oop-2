@@ -1,26 +1,22 @@
 <?php
 
 include __DIR__ ."/Genre.php";
-include __DIR__ ."/product.php";
+include __DIR__ ."/Product.php";
 
 class Movie extends Product 
 {
     private string $overview;
     private float $vote_average;
     private string $original_language;
-    private float $price;
-    private int $availability;
 
     public array $genres;
     function __construct($id, $title, $image, $overview, $vote, $language, $genres, $price, $availability)
     {
-        parent::__construct($id, $title, $image);
+        parent::__construct($id, $title, $image, $price, $availability);
         $this->overview = $overview;
         $this->vote_average = floatval($vote);
         $this->original_language = $language;
-        $this->genres = $genres;
-        $this->price = $price;
-        $this->availability = $availability;  
+        $this->genres = $genres; 
     }
 
     private function getVote(){
@@ -47,11 +43,11 @@ class Movie extends Product
     {   
         $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
         $image = $this->image;
+        $price = $this->price;
+        $availability = $this->availability;
         $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $genre = $this->formatGenres();
-        $price = $this->price;
-        $availability = $this->availability;
         include __DIR__ .'/../Views/card.php';
     }
 
@@ -75,7 +71,7 @@ class Movie extends Product
             }
             $availability = rand(0, 100);
             $price = rand(5, 200);
-            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $moviegenres, $price, $availability); 
+            $movies[] = new Movie($item['id'], $item['title'], $item['poster_path'], $price, $availability, $item['overview'], $item['vote_average'], $item['original_language'], $moviegenres); 
         }
         return $movies;  
     }
