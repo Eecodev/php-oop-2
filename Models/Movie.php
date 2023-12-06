@@ -43,11 +43,11 @@ class Movie extends Product
     {   
         $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
         $image = $this->image;
-        $price = $this->price;
-        $availability = $this->availability;
         $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $genre = $this->formatGenres();
+        $price = $this->price;
+        $availability = $this->availability;
         include __DIR__ .'/../Views/card.php';
     }
 
@@ -71,7 +71,7 @@ class Movie extends Product
             }
             $availability = rand(0, 100);
             $price = rand(5, 200);
-            $movies[] = new Movie($item['id'], $item['title'], $item['poster_path'], $price, $availability, $item['overview'], $item['vote_average'], $item['original_language'], $moviegenres); 
+            $movies[] = new Movie($item['id'], $item['title'], $item['poster_path'], $item['overview'], $item['vote_average'], $item['original_language'], $moviegenres, $price, $availability); 
         }
         return $movies;  
     }

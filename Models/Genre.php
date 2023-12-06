@@ -21,7 +21,7 @@ class Genre{
        $genres = [];
        
        foreach ($genreList as $item) {
-            $genres[] = new Genre('$item');
+            $genres[] = new Genre($item);
         }
         return $genres; 
 
